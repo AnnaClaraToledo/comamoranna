@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma pergunta importante...</title>
+    
+    <style>
+        body {
+            background: linear-gradient(-45deg, #ff0000, #990000, #ff3333, #660000);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .wrapper-central {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .painel {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 320px;
+            z-index: 10;
+            position: relative;
+            border: 4px solid #ff4d4d;
+        }
+
+        .coracao {
+            font-size: 3.5rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+            animation: pulsar 1s infinite alternate;
+        }
+
+        @keyframes pulsar {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+        }
+
+        .area-botoes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #btn-sim {
+            background-color: #4CAF50;
+            color: white;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        #btn-sim:hover {
+            transform: scale(1.1);
+        }
+
+        #btn-nao {
+            background-color: #ff4d4d;
+            color: white;
+            position: absolute;
+            right: 50px;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
+        }
+
+        .gif-decorativo {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1;
+            pointer-events: none; 
+            border: 3px solid white;
+        }
+
+        .g-top-left { top: -140px; left: -180px; }
+        .g-top-right { top: -140px; right: -180px; }
+        .g-mid-left { top: 50%; left: -240px; transform: translateY(-50%); }
+        .g-mid-right { top: 50%; right: -240px; transform: translateY(-50%); }
+        .g-bot-left { bottom: -140px; left: -180px; }
+        .g-bot-right { bottom: -140px; right: -180px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper-central">
+        
+        <img class="gif-decorativo g-top-left" src="https://miro.medium.com/v2/resize:fit:1080/1*S81MyPWsJitW0VCHiT5xWg.gif" alt="gif">
+        
+        <img class="gif-decorativo g-top-right" src="https://i.pinimg.com/originals/97/47/f0/9747f0d0fa02a9ff1e0c7d6522d3c6f2.gif" alt="gif">
+        
+        <img class="gif-decorativo g-mid-left" src="https://i.pinimg.com/originals/97/47/f0/9747f0d0fa02a9ff1e0c7d6522d3c6f2.gif" alt="gif">
+        
+        <img class="gif-decorativo g-mid-right" src="https://images.steamusercontent.com/ugc/954087182936043880/381ACDDD0B795C4FC5F62533E15666F7FD477680/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="gif">
+        
+        <img class="gif-decorativo g-bot-left" src="https://media.tenor.com/wqUh9yTQjksAAAAM/the-last-of-us2-tlou2.gif" alt="gif">
+        
+        <img class="gif-decorativo g-bot-right" src="https://i.pinimg.com/originals/d5/68/a3/d568a3e9ff7094b64fbd0b67e931d70d.gif" alt="gif">
+
+        <div class="painel">
+            <div class="coracao">❤️</div>
+            <h1>Aceitas ser minha namoradinha 👉👈?</h1>
+
+            <div class="area-botoes">
+                <button id="btn-sim" onclick="aceitou()">SIM!</button>
+                <button id="btn-nao">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnNao = document.getElementById("btn-nao");
+
+        btnNao.addEventListener("mouseover", function() {
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var novoX = Math.random() * (larguraJanela - 100);
+            var novoY = Math.random() * (alturaJanela - 100);
+
+            btnNao.style.position = "fixed";
+            btnNao.style.left = novoX + "px";
+            btnNao.style.top = novoY + "px";
+        });
+
+        function aceitou() {
+            alert("SABIA QUE VOCÊ IA ACEITAR! ❤️");
+        }
+    </script>
+</body>
+</html>
